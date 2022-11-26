@@ -1,0 +1,653 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Echo ZX Hub", 'BloodTheme')
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main")
+MainSection:NewButton("B Genesis", "No Description Found", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/raw-scriptpastebin/raw/main/B_Genesis'))()
+end)
+MainSection:NewButton("Fly", "I Believe I can fly!", function()
+    loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+end)
+local AimbotsSection = Main:NewSection("Aimbots")
+AimbotsSection:NewButton("Arsenal Hub", "Pew Pew Pew!", function()
+    wait(0.2)game.StarterGui:SetCore("SendNotification",{Title="Spero [Arsenal]",Text="Made by athoi21",Icon="rbxassetid://3837426995",Duration=23})local a=Instance.new("ScreenGui")local b=Instance.new("Frame")local c=Instance.new("Frame")local d=Instance.new("Frame")local e=Instance.new("TextButton")local f=Instance.new("UIListLayout")local g=Instance.new("TextButton")local h=Instance.new("TextButton")local i=Instance.new("TextButton")local j=Instance.new("TextLabel")a.Parent=game.CoreGui;a.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;b.Name="Main"b.Parent=a;b.BackgroundColor3=Color3.new(1,1,1)b.BorderSizePixel=0;b.Position=UDim2.new(0,0,0.292329967,0)b.Size=UDim2.new(0,180,0,26)c.Parent=b;c.BackgroundColor3=Color3.new(0.262745,0.262745,0.262745)c.BackgroundTransparency=0.15000000596046;c.BorderSizePixel=0;c.Position=UDim2.new(0,0,1,0)c.Size=UDim2.new(0,180,0,123)d.Parent=c;d.BackgroundColor3=Color3.new(0.262745,0.262745,0.262745)d.BackgroundTransparency=0.5;d.BorderSizePixel=0;d.Position=UDim2.new(0,0,0.0780795366,0)d.Size=UDim2.new(0,180,0,107)e.Name="esp"e.Parent=d;e.BackgroundColor3=Color3.new(1,1,1)e.BackgroundTransparency=1;e.BorderSizePixel=0;e.Position=UDim2.new(0,0,0.0584795177,0)e.Size=UDim2.new(0,180,0,25)e.Font=Enum.Font.SourceSansBold;e.Text="ESP"e.TextColor3=Color3.new(1,1,1)e.TextScaled=true;e.TextSize=14;e.TextStrokeTransparency=0;e.TextWrapped=true;e.MouseButton1Click:connect(function()ALLYCOLOR={0,255,255}ENEMYCOLOR={255,0,0}TRANSPARENCY=0.5;HEALTHBAR_ACTIVATED=true;function createFlex()players=game:GetService("Players")faces={"Front","Back","Bottom","Left","Right","Top"}currentPlayer=nil;lplayer=players.LocalPlayer;players.PlayerAdded:Connect(function(k)currentPlayer=k;k.CharacterAdded:Connect(function(l)createESP(l)end)end)function checkPart(m)if(m:IsA("Part")or m:IsA("MeshPart"))and m.Name~="HumanoidRootPart"then return true end end;function actualESP(m)for n=0,5 do surface=Instance.new("SurfaceGui",m)surface.Face=Enum.NormalId[faces[n+1]]surface.AlwaysOnTop=true;frame=Instance.new("Frame",surface)frame.Size=UDim2.new(1,0,1,0)frame.BorderSizePixel=0;frame.BackgroundTransparency=TRANSPARENCY;if currentPlayer.Team==players.LocalPlayer.Team then frame.BackgroundColor3=Color3.new(ALLYCOLOR[1],ALLYCOLOR[2],ALLYCOLOR[3])else frame.BackgroundColor3=Color3.new(ENEMYCOLOR[1],ENEMYCOLOR[2],ENEMYCOLOR[3])end end end;function createHealthbar(o)board=Instance.new("BillboardGui",o)board.Name="total"board.Size=UDim2.new(1,0,1,0)board.StudsOffset=Vector3.new(3,1,0)board.AlwaysOnTop=true;bar=Instance.new("Frame",board)bar.BackgroundColor3=Color3.new(255,0,0)bar.BorderSizePixel=0;bar.Size=UDim2.new(0.2,0,4,0)bar.Name="total2"health=Instance.new("Frame",bar)health.BackgroundColor3=Color3.new(0,255,0)health.BorderSizePixel=0;health.Size=UDim2.new(1,0,o.Parent.Humanoid.Health/100,0)o.Parent.Humanoid.Changed:Connect(function(p)o.total.total2.Frame.Size=UDim2.new(1,0,o.Parent.Humanoid.Health/100,0)end)end;function createESP(q)bugfix=q:WaitForChild("Head")for n,r in pairs(q:GetChildren())do if checkPart(r)then actualESP(r)end end;if HEALTHBAR_ACTIVATED then createHealthbar(q:WaitForChild("HumanoidRootPart"))end end;for n,s in pairs(players:GetChildren())do if s~=players.LocalPlayer then currentPlayer=s;createESP(s.Character)s.CharacterAdded:Connect(function(l)createESP(l)end)end end end;createFlex()end)f.Parent=d;f.SortOrder=Enum.SortOrder.LayoutOrder;g.Name="aimbot"g.Parent=d;g.BackgroundColor3=Color3.new(1,1,1)g.BackgroundTransparency=1;g.BorderSizePixel=0;g.Position=UDim2.new(0.111111112,0,0.208012223,0)g.Size=UDim2.new(0,180,0,25)g.Font=Enum.Font.SourceSansBold;g.Text="AIMBOT"g.TextColor3=Color3.new(1,1,1)g.TextScaled=true;g.TextSize=14;g.TextStrokeTransparency=0;g.TextWrapped=true;g.MouseButton1Click:connect(function()local t=game:GetService('Players').LocalPlayer;local u=workspace.CurrentCamera;local v=game:GetService('Players')local w=v.LocalPlayer;local x=w:GetMouse()local y=t:GetMouse()local z=v;function FindNearest(A)local B=1000000;local C=nil;for n,r in pairs(v:GetPlayers())do if r.Character and r.Name~=t.Name and r.Character:FindFirstChild('UpperTorso')then local D,E=u:WorldToScreenPoint(r.Character.UpperTorso.Position)local F=y.UnitRay:Distance(r.Character.UpperTorso.Position)if F<B and E then B=F;C=r end end end;return C end;x.Button2Down:Connect(function(G)targplr=FindNearest(Vector3.new(y.UnitRay.Origin,y.UnitRay.Direction))rightClick=true end)x.Button2Up:Connect(function(G)rightClick=false end)_G.LA=game:service'RunService'.Stepped:Connect(function()if rightClick and t.Character then if targplr.Character and targplr.Character:FindFirstChild('Head')then u.CFrame=CFrame.new(u.CFrame.Position,targplr.Character.Head.Position)end end end)end)h.Name="Speed"h.Parent=d;h.BackgroundColor3=Color3.new(1,1,1)h.BackgroundTransparency=1;h.BorderSizePixel=0;h.Position=UDim2.new(0,0,0.0584795177,0)h.Size=UDim2.new(0,180,0,25)h.Font=Enum.Font.SourceSansBold;h.Text="SPEED [x]"h.TextColor3=Color3.new(1,1,1)h.TextScaled=true;h.TextSize=14;h.TextStrokeTransparency=0;h.TextWrapped=true;h.MouseButton1Click:connect(function()down=false;velocity=Instance.new("BodyVelocity")velocity.maxForce=Vector3.new(100000,0,100000)local H=180;gyro=Instance.new("BodyGyro")gyro.maxTorque=Vector3.new(100000,0,100000)local I=game.Players.LocalPlayer.Character.Humanoid;function onButton1Down(y)down=true;velocity.Parent=game.Players.LocalPlayer.Character.UpperTorso;velocity.velocity=I.MoveDirection*H;gyro.Parent=game.Players.LocalPlayer.Character.UpperTorso;while down do if not down then break end;velocity.velocity=I.MoveDirection*H;local J=gyro.Parent.Position+(gyro.Parent.Position-workspace.CurrentCamera.CoordinateFrame.p).unit*5;gyro.cframe=CFrame.new(gyro.Parent.Position,Vector3.new(J.x,gyro.Parent.Position.y,J.z))wait(0.1)end end;function onButton1Up(y)velocity.Parent=nil;gyro.Parent=nil;down=false end;function onSelected(y)y.KeyDown:connect(function(K)if K:lower()=="x"then onButton1Down(y)end end)y.KeyUp:connect(function(K)if K:lower()=="x"then onButton1Up(y)end end)end;onSelected(game.Players.LocalPlayer:GetMouse())end)i.Name="fly"i.Parent=d;i.BackgroundColor3=Color3.new(1,1,1)i.BackgroundTransparency=1;i.BorderSizePixel=0;i.Position=UDim2.new(0,0,0.0584795177,0)i.Size=UDim2.new(0,180,0,25)i.Font=Enum.Font.SourceSansBold;i.Text="FLY [E]"i.TextColor3=Color3.new(1,1,1)i.TextScaled=true;i.TextSize=14;i.TextStrokeTransparency=0;i.TextWrapped=true;i.MouseButton1Click:connect(function()repeat wait()until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("UpperTorso")and game.Players.LocalPlayer.Character:findFirstChild("Humanoid")local y=game.Players.LocalPlayer:GetMouse()repeat wait()until y;local z=game.Players.LocalPlayer;local L=z.Character.UpperTorso;local M=true;local N=true;local O={f=0,b=0,l=0,r=0}local P={f=0,b=0,l=0,r=0}local Q=50;local H=0;function Fly()local R=Instance.new("BodyGyro",L)R.P=9e4;R.maxTorque=Vector3.new(9e9,9e9,9e9)R.cframe=L.CFrame;local S=Instance.new("BodyVelocity",L)S.velocity=Vector3.new(0,0.1,0)S.maxForce=Vector3.new(9e9,9e9,9e9)repeat wait()z.Character.Humanoid.PlatformStand=true;if O.l+O.r~=0 or O.f+O.b~=0 then H=H+.5+H/Q;if H>Q then H=Q end elseif not(O.l+O.r~=0 or O.f+O.b~=0)and H~=0 then H=H-1;if H<0 then H=0 end end;if O.l+O.r~=0 or O.f+O.b~=0 then S.velocity=(game.Workspace.CurrentCamera.CoordinateFrame.lookVector*(O.f+O.b)+game.Workspace.CurrentCamera.CoordinateFrame*CFrame.new(O.l+O.r,(O.f+O.b)*.2,0).p-game.Workspace.CurrentCamera.CoordinateFrame.p)*H;P={f=O.f,b=O.b,l=O.l,r=O.r}elseif O.l+O.r==0 and O.f+O.b==0 and H~=0 then S.velocity=(game.Workspace.CurrentCamera.CoordinateFrame.lookVector*(P.f+P.b)+game.Workspace.CurrentCamera.CoordinateFrame*CFrame.new(P.l+P.r,(P.f+P.b)*.2,0).p-game.Workspace.CurrentCamera.CoordinateFrame.p)*H else S.velocity=Vector3.new(0,0.1,0)end;R.cframe=game.Workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(-math.rad((O.f+O.b)*50*H/Q),0,0)until not M;O={f=0,b=0,l=0,r=0}P={f=0,b=0,l=0,r=0}H=0;R:Destroy()S:Destroy()z.Character.Humanoid.PlatformStand=false end;y.KeyDown:connect(function(G)if G:lower()=="e"then if M then M=false else M=true;Fly()end elseif G:lower()=="w"then O.f=1 elseif G:lower()=="s"then O.b=-1 elseif G:lower()=="a"then O.l=-1 elseif G:lower()=="d"then O.r=1 end end)y.KeyUp:connect(function(G)if G:lower()=="w"then O.f=0 elseif G:lower()=="s"then O.b=0 elseif G:lower()=="a"then O.l=0 elseif G:lower()=="d"then O.r=0 end end)Fly()end)j.Parent=b;j.BackgroundColor3=Color3.new(1,1,1)j.BackgroundTransparency=1;j.BorderSizePixel=0;j.Position=UDim2.new(0.0611111112,0,0,0)j.Size=UDim2.new(0,158,0,26)j.Font=Enum.Font.SourceSansBold;j.Text="SPERO [ARSENAL]"j.TextColor3=Color3.new(1,1,1)j.TextScaled=true;j.TextSize=14;j.TextStrokeTransparency=0;j.TextWrapped=true;function SCRIPT_XXHK66_FAKESCRIPT()local T=Instance.new('Script')T.Parent=b;repeat for U=0,1,.01 do T.Parent.Parent.Main.BackgroundColor3=Color3.fromHSV(U,1,1)wait()end;for U=1,0-.01 do T.Parent.Parent.Main.BackgroundColor3=Color3.fromHSV(U,1,1)wait()end until nil end;coroutine.resume(coroutine.create(SCRIPT_XXHK66_FAKESCRIPT))
+end)
+MainSection:NewButton("Infinite Yeild", "IY Admin", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+local MiscGunTestX = Window:NewTab("MiscGunTest X")
+local MiscGunSection = MiscGunTestX:NewSection("MiscGunTest X")
+
+MiscGunSection:NewButton("Chariotsware Hub", "ButtonInfo", function()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Rippeed/DaHoodinary/main/chariotsware"))()
+end)
+MiscGunSection:NewButton("Monkey Hub", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MonkeyHUBB/MonkeyMiscGunTest/main/README.md"))()
+end)
+local FishingSim = Window:NewTab("Fishing Simulator")
+local FishingSimSection = FishingSim:NewSection("Fishing Simulator")
+FishingSimSection:NewButton("Unnamed Hub", "ButtonInfo", function()
+    local Config = {
+    WindowName = "version 2.3",
+    Color = Color3.fromRGB(182,41,243),
+    Keybind = Enum.KeyCode.RightBracket
+}
+
+
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Bracket/main/BracketV3.lua"))()
+local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
+
+local Tab1 = Window:CreateTab("Fishing Simulator")
+
+
+local Section1 = Tab1:CreateSection("")
+local Section2 = Tab1:CreateSection("")
+
+local RunService = game:GetService("RunService")
+local player = game.Players.LocalPlayer
+local hum = player.Character.HumanoidRootPart
+local mouse = player:GetMouse() 
+local tpservice= game:GetService("TeleportService")
+local VirtualUser= game:service'VirtualUser'
+
+local ToolsCache = game:GetService("ReplicatedStorage").ToolsCache[player.UserId]
+local plrTools
+local bLocation
+local fuckMonster
+local fuckMobby
+
+local seacreatureSelectionned
+local locationSelected
+local eggs
+
+-- Credits To Charwar for Server Hop
+local PlaceID = game.PlaceId
+local AllIDs = {}
+local foundAnything = ""
+local actualHour = os.date("!*t").hour
+local Deleted = false
+local File = pcall(function()
+    AllIDs = game:GetService('HttpService'):JSONDecode(readfile("NotSameServers.json"))
+end)
+if not File then
+    table.insert(AllIDs, actualHour)
+    writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+end
+
+
+-- Server Hop
+function TPReturner()
+    local Site;
+    if foundAnything == "" then
+        Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+    else
+        Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+    end
+    local ID = ""
+    if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+        foundAnything = Site.nextPageCursor
+    end
+    local num = 0;
+    for i,v in pairs(Site.data) do
+        local Possible = true
+        ID = tostring(v.id)
+        if tonumber(v.maxPlayers) > tonumber(v.playing) then
+            for _,Existing in pairs(AllIDs) do
+                if num ~= 0 then
+                    if ID == tostring(Existing) then
+                        Possible = false
+                    end
+                else
+                    if tonumber(actualHour) ~= tonumber(Existing) then
+                        local delFile = pcall(function()
+                            delfile("NotSameServers.json")
+                            AllIDs = {}
+                            table.insert(AllIDs, actualHour)
+                        end)
+                    end
+                end
+                num = num + 1
+            end
+            if Possible == true then
+                table.insert(AllIDs, ID)
+                wait()
+                pcall(function()
+                    writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+                    wait()
+                    game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+                end)
+                wait(4)
+            end
+        end
+    end
+end
+
+function switchServer()
+    while wait() do
+        pcall(function()
+            TPReturner()
+            if foundAnything ~= "" then
+                TPReturner()
+            end
+        end)
+    end
+end
+
+function teleport(loc)
+    bLocation = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    if game.Players.LocalPlayer.Character.Humanoid.Sit then
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+    end
+    wait()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = loc
+end
+
+-- Get Tools Name (Just hidden the tool in replicatedstorage, savageeeee but characte win)
+for i, getTools in pairs(player.Character:GetChildren()) do
+    if getTools:IsA("Tool") and  getTools:FindFirstChild("GripC1") then
+        plrTools = getTools.Name
+    end
+end
+
+function EquipTool()
+    game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.SetEquippedItem:InvokeServer(2)
+    local args = {
+     [1] = game:GetService("ReplicatedStorage").ToolsCache:FindFirstChild(player.UserId)[plrTools]
+    }
+    game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.EquipTool:FireServer(unpack(args))
+end
+
+game:service'Players'.LocalPlayer.Idled:connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new())
+end)
+
+-------------
+
+
+
+
+
+-------------------------------------------------------
+
+
+
+Section1:CreateLabel("Farming")
+
+local Toggle6 = Section1:CreateToggle("Auto Kill", nil, function(State)
+    shared.toggle = State
+     if shared.toggle then
+    fuckMonster = RunService.Stepped:Connect(function()
+     for i, v in pairs(game.Workspace:GetChildren()) do
+     if v:FindFirstChild("Health") and v:FindFirstChild("IsSeaMonster") then
+        if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+                 
+                
+                    for i, getTools in pairs(player.Character:GetChildren()) do
+                        if getTools:IsA("Tool") and  getTools:FindFirstChild("GripC1") then
+                            plrTools = getTools.Name
+                        end
+                    end
+                 
+                    teleport(v.HumanoidRootPart.CFrame + Vector3.new(0, 30, 0))
+                    wait(1)
+                    game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.MonsterHit:FireServer(workspace[v.Name], tostring(plrTools), true)
+                    break
+                elseif not game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+                    EquipTool()
+               break
+            end
+        end
+     end
+     end)
+    else
+         fuckMonster:Disconnect()
+          teleport(CFrame.new(1.8703980445862, 53.57190322876, -188.37982177734))
+        end
+end)
+
+local Toggle11 = Section1:CreateToggle("Auto Kill Mobby Wood", nil, function(State)
+    shared.toggle = State
+     if shared.toggle then
+    fuckMobby = RunService.Stepped:Connect(function()
+     for i, v in pairs(game.Workspace:GetChildren()) do
+     if v:FindFirstChild("Health") and v:FindFirstChild("IsSeaMonster") and v.Name == "MobbyWood" then
+        if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+                 
+                
+                    for i, getTools in pairs(player.Character:GetChildren()) do
+                        if getTools:IsA("Tool") and  getTools:FindFirstChild("GripC1") then
+                            plrTools = getTools.Name
+                        end
+                    end
+                 
+                    teleport(v.HumanoidRootPart.CFrame + Vector3.new(0, 50, 0))
+                    wait(1)
+                    game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.MonsterHit:FireServer(workspace[v.Name], tostring(plrTools), true)
+                    break
+                elseif not game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+                    EquipTool()
+               break
+            end
+        end
+     end
+     end)
+    else
+         fuckMobby:Disconnect()
+          teleport(CFrame.new(1.8703980445862, 53.57190322876, -188.37982177734))
+        end
+end)
+
+
+local Toggle8 = Section1:CreateToggle("Reduce Lag", nil, function(State)
+    toggle = State
+     if toggle then
+        while toggle do 
+            wait(30)
+            for i, v in pairs(game.Workspace.DroppedItems:GetChildren()) do
+                if v:IsA("Model") then
+                    v:Destroy()
+                end
+            end
+        end
+      end
+end)
+
+local Toggle10 = Section1:CreateToggle("Auto Lock Rare Items", nil, function(State)
+    toggle = State
+     if toggle then
+        while toggle do 
+            wait(.1)
+for i, v in pairs(game.Players.LocalPlayer.PlayerGui.Interface.Inventory.Inventory.Frame.Backpack.List.Container:GetChildren()) do
+        if string.match(v.Name, "key") then
+            for i, model in pairs(v:GetDescendants()) do
+                if model:IsA("Tool") then
+                    if model.RarityLevel.Value >= 4 then
+                        
+                        if v.DraggableComponent.Contents.LockIcon.Visible == false then
+                            print(v.Name, model.Name, model.RarityLevel.Value)
+                        local args = {
+                            [1] = "Tools",
+                            [2] = v.Name,
+                            [3] = true
+                        }
+                        game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.SetInventoryItemLock:InvokeServer(unpack(args))
+                                                    
+                        end
+                    end
+                end
+            end
+        end
+end
+            
+        end
+      end
+end)
+
+Toggle10:AddToolTip("Rarity Locked: \nEpic \nLegendary \nEvent \nSecret")
+
+local Toggle1 = Section1:CreateToggle("Auto Caught", nil, function(State)
+toggle = State
+    while toggle do
+        wait(2.6)
+        game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.FishCaught:FireServer()
+    end
+end)
+
+local Toggle2 = Section1:CreateToggle("Auto Sell", nil, function(State)
+toggle = State
+    while toggle do
+        wait(2.6)
+        game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.processGameItemSold:InvokeServer("SellEverything")
+    end
+end)
+
+local Toggle3 = Section1:CreateToggle("Remove Fog", nil, function(State)
+    toggle = State
+        while toggle do
+        if  game.Lighting.FogEnd == 100 then
+         game.Lighting.FogEnd = 1000000
+        end
+            game.Lighting.FogEnd = 1000000
+            game.Lighting.GlobalLighting:Destroy()
+            game.Lighting.Atmosphere:Destroy()     
+             game.Lighting.Lighting:Destroy()  
+              game.Lighting.ColorCorrection:Destroy()     
+               game.Lighting.Bloom:Destroy()     
+                game.Lighting.Blur:Destroy()     
+                 game.Lighting.Atmosphere:Destroy()                 
+        end
+end)
+
+Section1:CreateLabel("Chest")
+
+local Toggle4 = Section1:CreateToggle("Daily Chest", nil, function(State)
+    toggle = State
+        while toggle do
+                for i, v in pairs(game.Workspace.Islands:GetDescendants()) do
+                    if v:IsA("Model") and string.match(v.Name, "Chest") then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                        wait(1)
+                        fireproximityprompt(v.HumanoidRootPart.ProximityPrompt)
+                    end
+                end            
+        end
+end)
+
+local Toggle9 = Section1:CreateToggle("Random Chest", nil, function(State)
+    toggle = State
+        while toggle do
+                for i, v in pairs(game.Workspace.RandomChests:GetDescendants()) do
+                    if v:IsA("Model") and string.match(v.Name, "Chest") then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                        wait(1)
+                        fireproximityprompt(v.HumanoidRootPart.ProximityPrompt)
+                    end
+                end            
+        end
+end)
+
+local Toggle5 = Section1:CreateToggle("Suken Chest", nil, function(State)
+    toggle = State
+        while toggle do
+            wait(5)
+             for i, v in pairs(game.Workspace:GetChildren()) do
+                if string.find(v.Name, "ShipModel") then
+                        teleport(v.HitBox.CFrame)
+                        for i, x in pairs(v:GetChildren()) do
+                            if string.match(x.Name, "Chest_") then
+                                teleport(x.HumanoidRootPart.CFrame)
+                                wait(1)
+                                fireproximityprompt(x.HumanoidRootPart.ProximityPrompt)    
+                            end                                
+                        end
+                    break
+                 end
+              end
+        end
+end)
+
+
+---------------------------------------------------------------------
+Section1:CreateLabel("Teleport")
+
+local Dropdown2 = Section1:CreateDropdown("Store", {"Boat Store","Raygan's Tavern","Supplies Store", "Pets Store"}, function(String)
+    locationSelected = String
+end)
+
+local Button1 = Section1:CreateButton("Teleport", function()
+    if locationSelected == "Boat Store" then
+            game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.EnterDoor:InvokeServer("BoatShopInterior", "Inside")
+        elseif locationSelected == "Raygan's Tavern" then
+            game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.EnterDoor:InvokeServer("TavernInterior", "Inside")
+        elseif locationSelected == "Supplies Store" then
+            game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.EnterDoor:InvokeServer("SuppliesStoreInterior", "Inside")  
+        elseif locationSelected == "Pets Store" then
+            game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.EnterDoor:InvokeServer("PetShop", "MainEntrance")
+    end
+end)
+
+local Dropdown3 = Section1:CreateDropdown("Location", {"Port Jackson","Ancient Shores","Shadow Isles", "Pharaoh's Dunes", "Eruption Island", "Monster's Borough", "Suken Ship"}, function(String)
+    locationSelected = String
+end)
+
+local Button2 = Section1:CreateButton("Teleport", function()
+    if locationSelected == "Port Jackson" then
+        teleport(CFrame.new(1.8703980445862, 53.57190322876, -188.37982177734))           
+        elseif locationSelected == "Ancient Shores" then
+        teleport(CFrame.new(-2436.431640625, 43.564971923828, -1683.4526367188))    
+        elseif locationSelected == "Shadow Isles" then
+        teleport(CFrame.new(2196.9926757812, 43.491630554199, -2216.4543457031))    
+        elseif locationSelected == "Pharaoh's Dunes" then
+        teleport(CFrame.new(-4142.74609375, 46.71378326416, 262.05679321289))
+        elseif locationSelected == "Eruption Island" then
+        teleport(CFrame.new(3022.9311523438, 52.347640991211, 1323.74609375))
+        elseif locationSelected == "Monster's Borough" then
+        teleport(CFrame.new(-3211.9047851562, 41.850345611572, 2735.306640625))  
+        elseif locationSelected == "Suken Ship" then
+             for i, v in pairs(game.Workspace:GetChildren()) do
+                if string.find(v.Name, "ShipModel") then
+                        teleport(v.HitBox.CFrame)
+                    break
+                 end
+              end                               
+    end
+end)
+
+Section2:CreateLabel("Boats")
+
+local Slider1 = Section2:CreateSlider("Boat Speed", 0,150,nil,true, function(Value)
+ for i, v in pairs(game.Workspace:GetChildren()) do
+        if v.Name == (game.Players.LocalPlayer.Name .. "'s Boat") then
+             v.Controller.VehicleSeat.MaxSpeed = tonumber(Value)
+         end
+    end   
+end)
+
+local Button3 = Section2:CreateButton("Tp to Boat", function()
+    for i, v in pairs(game.Workspace:GetChildren()) do
+        if v.Name == (game.Players.LocalPlayer.Name .. "'s Boat") then
+             teleport(v.Controller.VehicleSeat.CFrame + Vector3.new(0, 3, 0))
+        end
+    end
+end)
+local Button4 = Section2:CreateButton("Remove Borders", function()
+    for i, v in pairs(game.Workspace.IgnoredByMouse.BoatBorders:GetChildren()) do
+        v:Destroy()
+    end
+end)   
+
+Section2:CreateLabel("Pets")
+
+
+local Dropdown4 = Section2:CreateDropdown("Egg's", {"Royals","Normal","Ruby", "Void", "Silver", "Stone", "Gold"}, function(String)
+    eggs = String
+end)
+
+local Button8 = Section2:CreateButton("Buy", function()
+    if eggs == "Royal" then
+        game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.OpenLootboxFunction:InvokeServer("royalegg")    
+        elseif eggs == "Normal" then
+        game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.OpenLootboxFunction:InvokeServer("normalegg")   
+        elseif eggs == "Ruby" then
+        game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.OpenLootboxFunction:InvokeServer("rubyegg")   
+        elseif eggs == "Void" then
+        game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.OpenLootboxFunction:InvokeServer("voidegg")
+        elseif eggs == "Silver" then
+        game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.OpenLootboxFunction:InvokeServer("silverchest")
+        elseif eggs == "Stone" then
+        game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.OpenLootboxFunction:InvokeServer("stonechest")    
+        elseif eggs == "Gold" then
+        game:GetService("ReplicatedStorage").CloudFrameShared.DataStreams.OpenLootboxFunction:InvokeServer("goldchest")            
+    end
+end)
+
+Section2:CreateLabel("Misc")
+
+
+local Button8 = Section2:CreateButton("Instant ProximityPrompt", function()
+game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
+   prompt.HoldDuration = 0
+end)
+end) 
+
+local Button5 = Section2:CreateButton("Rejoins", function()
+tpservice:Teleport(game.PlaceId, plr)
+end) 
+
+local Button6 = Section2:CreateButton("Server Hop", function()
+switchServer()
+end)   
+
+local Button7 = Section2:CreateButton("Discord", function()
+setclipboard("HUnTFaE4H6") 
+end)
+
+local Toggle7 = Section2:CreateToggle("UI Toggle", nil, function(State)
+    Window:Toggle(State)
+end)
+
+Toggle7:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
+    Config.Keybind = Enum.KeyCode[Key]
+end)    
+Toggle7:SetState(true)
+
+EquipTool()
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(character)
+    EquipTool()
+end)
+end)
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
+PlayerSection:NewSlider("Walkspeed", "SliderInfo", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+PlayerSection:NewSlider("Jumppower", "SliderInfo", 350, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+local Anomic = Window:NewTab("Anomic")
+local AnomicSection = Anomic:NewSection("Anomic")
+AnomicSection:NewButton("Your Local Anomic Exploiter 40 subs special", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/YourLocalAnomicPlayer/40-Subscribers-Special/main/40%20Subscriber%20Special%20%7C%20YourLocalAnomicExploiter",true))();
+end)
+local BloxFruit = Window:NewTab("BloxFruit")
+local BloxFruitSection = BloxFruit:NewSection("BloxFruit")
+BloxFruitSection:NewButton("HoHo Hub", "ButtonInfo", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/HohoHub.lua'))()
+end)
+MainSection:NewButton("Vynixy (Teleport Tool)", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Teleport%20Tool/Source.lua"))()
+    end)
+    local Rake = Window:NewTab("The Rake Remastered")
+    local RakeSection = Rake:NewSection("The Rake Remastered")
+    RakeSection:NewButton("RealZzHub V2", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RealZzHub/MainV2/main/Main.lua"))()
+end)
+RakeSection:NewButton("LynX Hub", "No Description Found", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptsLynX/LynX/main/KeySystem/Loader.lua"))()
+end)
+local Navy = Window:NewTab("Navy Simulator")
+local NavySection = Navy:NewSection("Navy Simulator")
+NavySection:NewButton("Unnamed Script", "No Description Found", function()
+    local lib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+
+local win = lib:Window("Navy Simulator")
+local serv = win:Server("Navy Simulator", "shit ass game")
+
+local cTab = serv:Channel("Character")
+local autoTab = serv:Channel("AutoFarm")
+
+local flySpeed = 3
+local flying = false
+local ws = 16
+local js = 50
+
+local autofarm = false
+
+cTab:Slider("Walkspeed", 0,150,1, function(t)
+   ws = t
+end)
+
+cTab:Slider("Jump Power", 0,150,1, function(t)
+   jp = t
+end)
+
+cTab:Label("FLY CONTROLS : R-Up, F-Down, WASD")
+
+cTab:Bind("Fly", Enum.KeyCode.B, function()
+   flying = not flying
+   if flying then
+       game.Workspace.Gravity = 0
+   else
+       game.Workspace.Gravity = 196.19999694824
+   end
+end)
+
+cTab:Slider("Fly Speed", 0,10,0.1, function(t)
+  flySpeed = t
+end)
+
+autoTab:Toggle("AutoFarm", false, function(t)
+   autofarm = t
+   if autofarm then
+       game.Workspace.Gravity = 0
+   else
+       game.Workspace.Gravity = 196.19999694824
+   end
+end)
+
+coroutine.resume(coroutine.create(function()
+   while wait(0.1) do
+       while autofarm do
+           wait(0.1)
+           pcall(function()
+               local tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(12,Enum.EasingStyle.Linear), {CFrame = CFrame.new(-524.751,49,133.146)}):Play()
+               wait(12.5)
+               fireclickdetector(game:GetService("Workspace").Islands.Bank.EssentialWorkers.GoldBars.Bar.Clicker)
+               wait(2)
+               fireclickdetector(game:GetService("Workspace").Islands.Bank.EssentialWorkers.GoldBars.Bar.Clicker)
+               wait(2)
+               fireclickdetector(game:GetService("Workspace").Islands.Bank.EssentialWorkers.GoldBars.Bar.Clicker)
+               wait(0.25)
+               fireclickdetector(game:GetService("Workspace").Islands.Bank.EssentialWorkers.GoldBars.Bar.Clicker)
+               wait(0.25)
+               fireclickdetector(game:GetService("Workspace").Islands.Bank.EssentialWorkers.GoldBars.Bar.Clicker)
+               wait(0.75)
+               local tween1 = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(12,Enum.EasingStyle.Linear), {CFrame = CFrame.new(270.048, 47.608, -5492.269)}):Play()
+               wait(14.5)
+           end)
+       end
+   end
+end))
+
+coroutine.resume(coroutine.create(function()
+   while wait(0.01) do
+       while flying do
+           pcall(function()
+               local charV = game.Players.LocalPlayer.Character
+               charV.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+
+               if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.W) then
+                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-flySpeed)
+               end;
+               if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.A) then
+                   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(-flySpeed,0,0)
+               end;
+               if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.S) then
+                   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,flySpeed)
+               end;
+               if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.D) then
+                   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(flySpeed,0,0)
+               end;
+               if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.R) then
+                   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,flySpeed/1.5,0)
+               end;
+               if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.F) then
+                   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-flySpeed/1.5,0)
+               end;
+           end)
+           task.wait()
+       end
+   end
+end))
+
+while true do
+   wait(0.1)
+   pcall(function()
+       local humanoid = game.Players.LocalPlayer.Character.Humanoid
+       humanoid.WalkSpeed = ws
+       humanoid.JumpPower = jp
+   end)
+end
+end)
+local Other = Window:NewTab("Other")
+local BtoolsSection = Other:NewSection("Btools")
+BtoolsSection:NewButton("Btools (BROKEN)", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://ssbtools.netlify.app/assets/storage/LOADSTRING_SCRIPT2.txt"))()
+end)
+local OtherSection = Other:NewSection("Other")
+AimbotsSection:NewButton("AimWare", "ButtonInfo", function()
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/Wheeleee/AIMWARE/main/Startup")()
+end)
+OtherSection:NewLabel("Discord : https://discord.gg/h6wfQhAnxj")
